@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Instrument Serif", serif;
+
+  --color-gold: #D8C08A;
+  --color-champagne: #EADDB8;
+  --color-bronze: #8A6A3A;
+  --color-surface: #0E0E0C;
+  --color-surface-soft: #151512;
+  --color-ivory: #F4F0E8;
+  --color-muted: #A8A095;
+  --color-subtle: #6F675E;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #050505;
+    color: #F4F0E8;
+  }
+}
+
+.noise-bg {
+  position: relative;
+}
+
+.noise-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/dark-matter.png");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.mask-gradient-b {
+  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+}
+
+.text-reveal {
+  overflow: hidden;
+}
+
+.glass {
+  background: rgba(21, 21, 18, 0.7);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.gold-glow {
+  box-shadow: 0 0 60px rgba(216, 192, 138, 0.1);
+}
+
+.radial-glow {
+  background: radial-gradient(circle at 50% 50%, rgba(216, 192, 138, 0.08), transparent 70%);
+}
+
+.hero-gradient {
+  background: linear-gradient(to bottom, transparent 40%, #050505 100%);
+}
+
+::selection {
+  background: #D8C08A;
+  color: #050505;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #222;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D8C08A;
+}
+
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 4s ease-in-out infinite;
+}
